@@ -14,6 +14,8 @@ public class Main {
     //    System.out.println(text);
 
         String charFileName = "D:\\Timofey\\test.txt";
-        CharWorker.write(charFileName);
+       // CharWorker.write(charFileName);
+        String buf = CharWorker.read(charFileName);
+       System.out.println(buf);
     }
 }
