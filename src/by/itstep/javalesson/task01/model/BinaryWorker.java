@@ -7,7 +7,7 @@ public class BinaryWorker {
         OutputStream stream = null;
 
         try {
-            stream =  new FileOutputStream(fileName);
+            stream = new BufferedOutputStream( new FileOutputStream(fileName));
 
             for (int i = -1000; i < 0; i++) {
                 stream.write(i);
@@ -36,7 +36,7 @@ public class BinaryWorker {
         StringBuilder builder = new StringBuilder();
 
         try {
-            stream = new FileInputStream(fileName);
+            stream = new BufferedInputStream(new FileInputStream(fileName));
 
             int number;
 

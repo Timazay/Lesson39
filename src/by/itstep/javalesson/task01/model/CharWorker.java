@@ -6,7 +6,8 @@ public class CharWorker {
     public static void write(String fileName) {
 
 
-        try (Writer stream = new FileWriter(fileName)) {
+        try (Writer writer = new FileWriter(fileName);
+        BufferedWriter stream = new BufferedWriter(writer)) {
             for (int i = 0; i < 130; i++) {
                 stream.write(i);
             }
@@ -24,7 +25,8 @@ public class CharWorker {
     public static String read(String fileName) {
         StringBuilder builder = new StringBuilder();
 
-        try (Reader stream = new FileReader(fileName)) {
+        try (Reader reader = new FileReader(fileName);
+        BufferedReader stream = new BufferedReader(reader)) {
 
             int number;
             while ((number = stream.read()) != -1){
