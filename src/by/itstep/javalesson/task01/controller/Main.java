@@ -4,6 +4,7 @@ import by.itstep.javalesson.task01.model.BinaryWorker;
 import by.itstep.javalesson.task01.model.CharWorker;
 import by.itstep.javalesson.task01.model.entity.Student;
 import by.itstep.javalesson.task01.model.logic.StudentBinaryWorker;
+import by.itstep.javalesson.task01.model.logic.StudentSerializer;
 import by.itstep.javalesson.task01.model.logic.StudentWorker;
 
 import java.io.IOException;
@@ -12,11 +13,23 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
+        Student student = new Student("John", 22, 6, true);
+        String fileName0 = "D:/Timofey/students.bin";
+
+       // StudentSerializer.serialize(fileName0, student);
+
+        System.out.println(StudentSerializer.deserialize(fileName0));
+
+        ///
+
         Student[] students = {
                 new Student("Alex", 20, 9, true),
                 new Student("Mike", 18, 8, true),
                 new Student("Tim", 16, 10, true)
         };
+
+
+        ///
 
         String fileName = "D:/Timofey/example.bin";
 
@@ -34,8 +47,8 @@ public class Main {
 
 
         List<Student> list1 = StudentWorker.read(fileName1);
-        for (Student student : list1) {
-            System.out.println(student);
+        for (Student studentRead : list1) {
+            System.out.println(studentRead);
         }
 
         //     String binaryFileName = "D:\\Timofey\\test.byn";
