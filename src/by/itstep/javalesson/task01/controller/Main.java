@@ -3,6 +3,7 @@ package by.itstep.javalesson.task01.controller;
 import by.itstep.javalesson.task01.model.BinaryWorker;
 import by.itstep.javalesson.task01.model.CharWorker;
 import by.itstep.javalesson.task01.model.entity.Student;
+import by.itstep.javalesson.task01.model.logic.StudentBinaryWorker;
 import by.itstep.javalesson.task01.model.logic.StudentWorker;
 
 import java.io.IOException;
@@ -17,12 +18,23 @@ public class Main {
                 new Student("Tim", 16, 10, true)
         };
 
-        String fileName = "D:\\Timofey\\student.dat";
+        String fileName = "D:/Timofey/example.bin";
 
-        //   StudentWorker.write(fileName, students);
+        StudentBinaryWorker.write(fileName, students);
 
-        List<Student> list = StudentWorker.read(fileName);
-        for (Student student : list) {
+        List<Student> list = StudentBinaryWorker.read(fileName);
+
+        System.out.println(list);
+
+////////////////
+
+        String fileName1 = "D:/Timofey/student.txt";
+
+        StudentWorker.write(fileName1, students);
+
+
+        List<Student> list1 = StudentWorker.read(fileName1);
+        for (Student student : list1) {
             System.out.println(student);
         }
 
@@ -36,4 +48,6 @@ public class Main {
         //     String buf = CharWorker.read(charFileName);
         //    System.out.println(buf);
     }
+
 }
+

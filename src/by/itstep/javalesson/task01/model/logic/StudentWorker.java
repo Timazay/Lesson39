@@ -13,7 +13,7 @@ public class StudentWorker {
             stream = new BufferedWriter(new FileWriter(fileName));
 
             for (Student student : students) {
-                stream.write(student.getName());
+                stream.write(student.getName() + "\n");
                 stream.write(student.getAge() + "\n");
                 stream.write(student.getMark() + "\n");
                 stream.write(student.isAlive() + "\n");
@@ -34,10 +34,11 @@ public class StudentWorker {
     }
 
     public static List<Student> read(String fileName) {
-        BufferedReader stream = null;
+       // BufferedReader stream = null;
+        LineNumberReader stream = null;
         List<Student> list = new ArrayList<>();
         try {
-            stream = new BufferedReader(new FileReader(fileName));
+            stream = new LineNumberReader(new BufferedReader(new FileReader(fileName)));
 
             while (true) {
                 String name = stream.readLine();
@@ -54,6 +55,9 @@ public class StudentWorker {
                 list.add(student);
 
             }
+
+            System.out.println(stream.getLineNumber());
+
         } catch (IOException exception) {
             System.out.println(exception);
         } finally {
