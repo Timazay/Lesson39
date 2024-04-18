@@ -6,6 +6,7 @@ import by.itstep.javalesson.task01.model.entity.Student;
 import by.itstep.javalesson.task01.model.logic.StudentBinaryWorker;
 import by.itstep.javalesson.task01.model.logic.StudentSerializer;
 import by.itstep.javalesson.task01.model.logic.StudentWorker;
+import by.itstep.javalesson.task01.model.logic.StudentXMLSerializer;
 
 import java.io.IOException;
 import java.io.OutputStream;
@@ -21,6 +22,12 @@ public class Main {
         System.out.println(StudentSerializer.deserialize(fileName0));
 
         ///
+        String fileName2 = "D:/Timofey/students.xml";
+
+       // StudentXMLSerializer.serialize(fileName2, student);
+
+        System.out.println(StudentXMLSerializer.deserialize(fileName2));
+        ////
 
         Student[] students = {
                 new Student("Alex", 20, 9, true),
